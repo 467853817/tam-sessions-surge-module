@@ -1,0 +1,10 @@
+#!name=天安门城楼 余票改写
+#!desc=bookingquery/sessions 响应 remaining / remaining_total / remaining_check / status 定点改写，自动跳过已结束场次
+#!author=467853817
+#!system=ios
+
+[Script]
+booking_sessions = type=http-response,pattern=^https?:\/\/(wap|www)\.tiananmenchenglou\.com\/mmodule\/com\.mpwork\.tickets6\/ajax\/bookingquery\/sessions,requires-body=1,max-size=0,script-path=https://fastly.jsdelivr.net/gh/467853817/tam-sessions-surge-module@main/booking_sessions.js,timeout=30
+
+[MITM]
+hostname = %APPEND% wap.tiananmenchenglou.com, www.tiananmenchenglou.com
